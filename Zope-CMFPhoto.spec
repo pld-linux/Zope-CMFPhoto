@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 %define		zope_subname	CMFPhoto
 %define		sub_ver rc2
 Summary:	A Zope product with wrapper objects and a Plone skin for the Photo product
