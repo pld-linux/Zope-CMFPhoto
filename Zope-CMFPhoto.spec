@@ -10,6 +10,7 @@ Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}%{sub_ver}.tar.gz
 # Source0-md5:	b175ab4acf27fde98c61c03698ed1cbf
 URL:		http://sourceforge.net/projects/collective/
+BuildRequires:  python
 %pyrequires_eq	python-modules
 Requires:	Zope-CMF >= 1:1.4
 Requires:	ImageMagick
