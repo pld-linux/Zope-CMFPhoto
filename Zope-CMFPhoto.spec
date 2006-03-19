@@ -11,16 +11,17 @@ Source0:	http://dl.sourceforge.net/collective/%{zope_subname}-%{version}%{sub_ve
 # Source0-md5:	b175ab4acf27fde98c61c03698ed1cbf
 URL:		http://sourceforge.net/projects/collective/
 BuildRequires:	python
+BuildRequires:	rpmbuild(macros) >= 1.268
 %pyrequires_eq	python-modules
-Requires:	Zope-CMF >= 1:1.4
-Requires:	ImageMagick
-Requires:	Zope-CMFPlone >= 1.0.1
-Requires:	Zope >= 2.6.1
 Requires(post,postun):	/usr/sbin/installzopeproduct
-BuildArch:	noarch
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Requires:	ImageMagick
+Requires:	Zope >= 2.6.1
+Requires:	Zope-CMF >= 1:1.4
+Requires:	Zope-CMFPlone >= 1.0.1
 Conflicts:	CMF
 Conflicts:	Plone
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 CMFPhoto is a Zope product with wrapper objects and a Plone skin for
@@ -49,16 +50,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /usr/sbin/installzopeproduct %{_datadir}/%{name} %{zope_subname}
-if [ -f /var/lock/subsys/zope ]; then
-	/etc/rc.d/init.d/zope restart >&2
-fi
+%service -q zope restart
 
 %postun
 if [ "$1" = "0" ]; then
 	/usr/sbin/installzopeproduct -d %{zope_subname}
-	if [ -f /var/lock/subsys/zope ]; then
-		/etc/rc.d/init.d/zope restart >&2
-	fi
+	%service -q zope restart
 fi
 
 %files
