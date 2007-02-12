@@ -1,7 +1,7 @@
 %define		zope_subname	CMFPhoto
 %define		sub_ver rc2
 Summary:	A Zope product with wrapper objects and a Plone skin for the Photo product
-Summary(pl):	Dodatek dla Zope umo¿liwiaj±cy operacje na obiektach i skórach w Plone
+Summary(pl.UTF-8):   Dodatek dla Zope umoÅ¼liwiajÄ…cy operacje na obiektach i skÃ³rach w Plone
 Name:		Zope-%{zope_subname}
 Version:	0.4
 Release:	0.%{sub_ver}.3
@@ -27,9 +27,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 CMFPhoto is a Zope product with wrapper objects and a Plone skin for
 the Photo product.
 
-%description -l pl
-CMFPhoto jest dodatkiem dla Zope umo¿liwiaj±cym operacje na obiektach
-i skórach w Plone.
+%description -l pl.UTF-8
+CMFPhoto jest dodatkiem dla Zope umoÅ¼liwiajÄ…cym operacje na obiektach
+i skÃ³rach w Plone.
 
 %prep
 %setup -q -n %{zope_subname}
